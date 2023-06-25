@@ -8,7 +8,9 @@ from tkinter import  ttk
 LARGEFONT = ("Verdana", 35)
 
 this_array = []
-weight, height, tree, edges, leaf_nodos, inorder_array, postorder_array, preorder_array, int_array = (None, None, None, None, None, None, None, None, None)
+weight, height, tree, edges, leaf_nodos, \
+    inorder_array, postorder_array, \
+    preorder_array, int_array = (None, None, None, None, None, None, None, None, None)
 def convert_to_int(entry_object, window):
     get_information = entry_object.get()
     this_list = get_information.split(',')
@@ -26,7 +28,7 @@ def convert_to_int(entry_object, window):
         postorder_array = ll.get_postorder(tree)
         preorder_array = ll.get_preorder(tree)
 
-        weight = ll.get_weight(int_array)
+        weight = ll.get_weight(inorder_array)
         height = ll.get_height(tree)
         leaf_nodos = ll.get_hojas(tree)
 
@@ -43,6 +45,8 @@ class IngresarValores:
     def __init__(self):
         self.root = tk.Tk()
         entry_ingress = tk.Entry(self.root)
+        label_indications = tk.Label(self.root, text="Ingrese los numeros separados por comas, sin espacios", font=LARGEFONT)
+        label_indications.place(relx=0.5, rely=0.2, anchor=tk.CENTER)
         button_enviar = tk.Button(self.root, text="Enviar", command=lambda: convert_to_int(entry_ingress, self.root))
         entry_ingress.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
         button_enviar.place(relx=0.5,rely=0.8,anchor=tk.CENTER)
@@ -166,7 +170,7 @@ class IndicarAltura(tk.Frame):
         label_indicate = ttk.Label(self, text=f"{height}", font=LARGEFONT)
         label_indicate.place(relx=0.5, rely=0.2, anchor=tk.CENTER)
 
-        button1 = ttk.Button(self, text="Startpage",
+        button1 = ttk.Button(self, text="Menu",
                              command=lambda: controller.show_frame(Menu))
         button1.place(rely=0.5, anchor=tk.W)
 
@@ -180,7 +184,7 @@ class IndicarHojas(tk.Frame):
         label_indicate = ttk.Label(self, text=f"{leaf_nodos}", font=LARGEFONT)
         label_indicate.place(relx=0.5, rely=0.2, anchor=tk.CENTER)
 
-        button1 = ttk.Button(self, text="Startpage",
+        button1 = ttk.Button(self, text="Menu",
                              command=lambda: controller.show_frame(Menu))
         button1.place(rely=0.5, anchor=tk.W)
 
@@ -200,7 +204,7 @@ class MostrarOrden(tk.Frame):
         label_postorder.place(relx=0.5, rely=0.3, anchor=tk.CENTER)
         label_preorder.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
 
-        button1 = ttk.Button(self, text="Startpage",
+        button1 = ttk.Button(self, text="Menu",
                              command=lambda: controller.show_frame(Menu))
         button1.place(rely=0.5, anchor=tk.W)
 
