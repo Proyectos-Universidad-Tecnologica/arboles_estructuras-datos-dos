@@ -1,9 +1,6 @@
 import networkx as nx
 import random
 
-esta_lista = [29,12,50,8,19,60,5,17,22,45,9]
-
-
 class TreeNode():
 
     def __init__(self, value):
